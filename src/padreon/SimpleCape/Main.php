@@ -27,12 +27,11 @@ class Main extends PluginBase{
     public function onEnable(){
         if (!extension_loaded("gd")){
             $this->getServer()->getLogger()->error("please enable gd!");
-            $this->getServer()->disablePlugins();
+            $this->getServer()->getPluginManager()->disablePlugin($this);
             return true;
         }
         @mkdir($this->getDataFolder());
         $this->saveResource('cape.png');
-        return true;
     }
 
     /**
